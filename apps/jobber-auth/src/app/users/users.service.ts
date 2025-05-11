@@ -19,4 +19,10 @@ export class UsersService {
   async findAll() {
     return this.prismaService.user.findMany();
   }
+
+  async findUnique(args: Prisma.UserWhereUniqueInput) {
+    return this.prismaService.user.findUniqueOrThrow({
+      where: args,
+    });
+  }
 }
