@@ -14,7 +14,6 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "nxCloudId": "68201d9320d2255005aeb88f",
   "plugins": [
     {
       "plugin": "@nx/webpack/plugin",
@@ -39,5 +38,23 @@
       },
       "exclude": ["apps/jobber-auth-e2e/**/*", "apps/jobber-jobs-e2e/**/*"]
     }
-  ]
+  ],
+  "targetDefaults": {
+    "build": {
+      "inputs": [
+        "{projectRoot}/**/*",
+        "{workspaceRoot}/lib/**/*",
+        "{workspaceRoot}/proto/*"
+      ],
+      "options": {
+        "assets": [
+          {
+            "glob": "*.proto",
+            "input": "proto",
+            "output": "proto"
+          }
+        ]
+      }
+    }
+  }
 }
